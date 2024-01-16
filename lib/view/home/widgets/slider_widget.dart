@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hivetodoodev/utils/colors.dart';
 
-/// My Drawer Slider
+
 class MySlider extends StatefulWidget {
   MySlider({
     Key? key,
@@ -14,7 +14,7 @@ class MySlider extends StatefulWidget {
 }
 
 class _MySliderState extends State<MySlider> {
-  /// Icons
+
   List<IconData> icons = [
     CupertinoIcons.home,
     CupertinoIcons.person_fill,
@@ -22,7 +22,7 @@ class _MySliderState extends State<MySlider> {
     CupertinoIcons.info_circle_fill,
   ];
 
-  /// Texts
+
   List<String> texts = [
     "Anasayfa",
     "Profil",
@@ -65,7 +65,7 @@ class _MySliderState extends State<MySlider> {
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (ctx, i) {
                   return InkWell(
-                    // ignore: avoid_print
+              
                     onTap: () => print("$i Selected"),
                     child: Container(
                       margin: const EdgeInsets.all(5),

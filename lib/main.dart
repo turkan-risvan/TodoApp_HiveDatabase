@@ -7,16 +7,16 @@ import '../models/task.dart';
 import '../view/home/home_view.dart';
 
 Future<void> main() async {
-  /// Initial Hive DB
+
   await Hive.initFlutter();
 
-  /// Register Hive Adapter
+
   Hive.registerAdapter<Task>(TaskAdapter());
 
-  /// Open box
+
   var box = await Hive.openBox<Task>("tasksBox");
 
-  /// Delete data from previous day
+
 
   box.values.forEach((task) {
     if (task.createdAtTime.day != DateTime.now().day) {
@@ -30,6 +30,7 @@ Future<void> main() async {
 class BaseWidget extends InheritedWidget {
   BaseWidget({Key? key, required this.child}) : super(key: key, child: child);
   final HiveDataStore dataStore = HiveDataStore();
+  @override
   final Widget child;
 
   static BaseWidget of(BuildContext context) {
@@ -37,7 +38,7 @@ class BaseWidget extends InheritedWidget {
     if (base != null) {
       return base;
     } else {
-      throw StateError('BaseWidget türünde ata widget bulunamadı');
+      throw StateError('BaseWidget türünde widget bulunamadı');
     }
   }
 

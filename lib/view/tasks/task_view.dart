@@ -1,17 +1,13 @@
-// ignore_for_file: prefer_typing_uninitialized_variables
+
 
 import 'package:flutter/material.dart';
-
 import 'package:intl/intl.dart';
-
-///
 import '../../main.dart';
 import '../../models/task.dart';
 import '../../utils/colors.dart';
 import '../../utils/constanst.dart';
 import '../../utils/strings.dart';
 
-// ignore: must_be_immutable
 class TaskView extends StatefulWidget {
   TaskView({
     Key? key,
@@ -34,7 +30,7 @@ class _TaskViewState extends State<TaskView> {
   DateTime? time;
   DateTime? date;
 
-  /// Show Selected Time As String Format
+
   String showTime(DateTime? time) {
     if (widget.task?.createdAtTime == null) {
       if (time == null) {
@@ -49,7 +45,7 @@ class _TaskViewState extends State<TaskView> {
     }
   }
 
-  /// Show Selected Time As DateTime Format
+
   DateTime showTimeAsDateTime(DateTime? time) {
     if (widget.task?.createdAtTime == null) {
       if (time == null) {
@@ -62,7 +58,7 @@ class _TaskViewState extends State<TaskView> {
     }
   }
 
-  /// Show Selected Date As String Format
+
   String showDate(DateTime? date) {
     if (widget.task?.createdAtDate == null) {
       if (date == null) {
@@ -75,7 +71,7 @@ class _TaskViewState extends State<TaskView> {
     }
   }
 
-  // Show Selected Date As DateTime Format
+
   DateTime showDateAsDateTime(DateTime? date) {
     if (widget.task?.createdAtDate == null) {
       if (date == null) {
@@ -88,7 +84,7 @@ class _TaskViewState extends State<TaskView> {
     }
   }
 
-  /// If any Task Already exist return TRUE otherWise FALSE
+
   bool isTaskAlreadyExistBool() {
     if (widget.taskControllerForTitle?.text == null &&
         widget.taskControllerForSubtitle?.text == null) {
@@ -98,7 +94,7 @@ class _TaskViewState extends State<TaskView> {
     }
   }
 
-  /// If any task already exist app will update it otherwise the app will add a new task
+
   dynamic isTaskAlreadyExistUpdateTask() {
     if (widget.taskControllerForTitle?.text != null &&
         widget.taskControllerForSubtitle?.text != null) {
@@ -106,8 +102,7 @@ class _TaskViewState extends State<TaskView> {
         widget.taskControllerForTitle?.text = title;
         widget.taskControllerForSubtitle?.text = subtitle;
 
-        // widget.task?.createdAtDate = date!;
-        // widget.task?.createdAtTime = time!;
+ 
 
         widget.task?.save();
         Navigator.of(context).pop();
@@ -130,7 +125,6 @@ class _TaskViewState extends State<TaskView> {
     }
   }
 
-  /// Delete Selected Task
   dynamic deleteTask() {
     return widget.task?.delete();
   }
@@ -143,9 +137,9 @@ class _TaskViewState extends State<TaskView> {
       child: Scaffold(
         backgroundColor: Color(0xFFFDEDFD),
         appBar: AppBar(
-          title: const Text('ıfjıf'),
+        
         ),
-        // appBar:   MyAppBar(),
+      
         body: SizedBox(
           width: double.infinity,
           height: double.infinity,
@@ -156,14 +150,14 @@ class _TaskViewState extends State<TaskView> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    /// new / update Task Text
+               
                     _buildTopText(textTheme),
 
-                    /// Middle Two TextFileds, Time And Date Selection Box
+      
                     _buildMiddleTextFieldsANDTimeAndDateSelection(
                         context, textTheme),
 
-                    /// All Bottom Buttons
+              
                     _buildBottomButtons(context),
                   ],
                 ),
@@ -175,7 +169,7 @@ class _TaskViewState extends State<TaskView> {
     );
   }
 
-  /// All Bottom Buttons
+
   Padding _buildBottomButtons(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
@@ -187,7 +181,7 @@ class _TaskViewState extends State<TaskView> {
           isTaskAlreadyExistBool()
               ? Container()
 
-              /// Delete Task Button
+    
               : Container(
                   width: 150,
                   height: 55,
@@ -206,8 +200,8 @@ class _TaskViewState extends State<TaskView> {
                       Navigator.pop(context);
                     },
                     color: Colors.white,
-                    child: Row(
-                      children: const [
+                    child:const  Row(
+                      children:  [
                         Icon(
                           Icons.close,
                           color: MyColors.primaryColor,
@@ -226,7 +220,7 @@ class _TaskViewState extends State<TaskView> {
                   ),
                 ),
 
-          /// Add or Update Task Button
+          
           MaterialButton(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
@@ -251,7 +245,7 @@ class _TaskViewState extends State<TaskView> {
     );
   }
 
-  /// Middle Two TextFileds And Time And Date Selection Box
+ 
   SizedBox _buildMiddleTextFieldsANDTimeAndDateSelection(
       BuildContext context, TextTheme textTheme) {
     return SizedBox(
@@ -260,14 +254,14 @@ class _TaskViewState extends State<TaskView> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          /// Title of TextFiled
+         
           Padding(
             padding: const EdgeInsets.only(left: 30),
             child: Text(MyString.titleOfTitleTextField,
                 style: textTheme.headline4),
           ),
 
-          /// Title TextField
+       
           Container(
             width: MediaQuery.of(context).size.width,
             margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -300,9 +294,9 @@ class _TaskViewState extends State<TaskView> {
             height: 10,
           ),
 
-          /// Note TextField
+     
           Container(
-            // color: Colors.pink,
+        
             width: MediaQuery.of(context).size.width,
             margin: const EdgeInsets.symmetric(horizontal: 16),
             child: ListTile(
@@ -326,119 +320,13 @@ class _TaskViewState extends State<TaskView> {
             ),
           ),
 
-          /// Time Picker
-          // GestureDetector(
-          //   onTap: () {
-          //     DatePicker.showTimePicker(context,
-          //         showTitleActions: true,
-          //         showSecondsColumn: false,
-          //         onChanged: (_) {}, onConfirm: (selectedTime) {
-          //       setState(() {
-          //         if (widget.task?.createdAtTime == null) {
-          //           time = selectedTime;
-          //         } else {
-          //           widget.task!.createdAtTime = selectedTime;
-          //         }
-          //       });
-
-          //       FocusManager.instance.primaryFocus?.unfocus();
-          //     }, currentTime: showTimeAsDateTime(time));
-          //   },
-          //   child: Container(
-          //     margin: const EdgeInsets.fromLTRB(20, 20, 20, 10),
-          //     width: double.infinity,
-          //     height: 55,
-          //     decoration: BoxDecoration(
-          //       color: Colors.white,
-          //       border: Border.all(color: Colors.grey.shade300, width: 1),
-          //       borderRadius: BorderRadius.circular(10),
-          //     ),
-          //     child: Row(
-          //       children: [
-          //         Padding(
-          //           padding: const EdgeInsets.only(left: 10),
-          //           child:
-          //               Text(MyString.timeString, style: textTheme.headline5),
-          //         ),
-          //         Expanded(child: Container()),
-          //         Container(
-          //           margin: const EdgeInsets.only(right: 10),
-          //           width: 80,
-          //           height: 35,
-          //           decoration: BoxDecoration(
-          //               borderRadius: BorderRadius.circular(10),
-          //               color: Colors.grey.shade100),
-          //           child: Center(
-          //             child: Text(
-          //               showTime(time),
-          //               style: textTheme.subtitle2,
-          //             ),
-          //           ),
-          //         )
-          //       ],
-          //     ),
-          //   ),
-          // ),
-
-          //   /// Date Picker
-          //   GestureDetector(
-          //     onTap: () {
-          //       DatePicker.showDatePicker(context,
-          //           showTitleActions: true,
-          //           minTime: DateTime.now(),
-          //           maxTime: DateTime(2030, 3, 5),
-          //           onChanged: (_) {}, onConfirm: (selectedDate) {
-          //         setState(() {
-          //           if (widget.task?.createdAtDate == null) {
-          //             date = selectedDate;
-          //           } else {
-          //             widget.task!.createdAtDate = selectedDate;
-          //           }
-          //         });
-          //         FocusManager.instance.primaryFocus?.unfocus();
-          //       }, currentTime: showDateAsDateTime(date));
-          //     },
-          //     child: Container(
-          //       margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-          //       width: double.infinity,
-          //       height: 55,
-          //       decoration: BoxDecoration(
-          //         color: Colors.white,
-          //         border: Border.all(color: Colors.grey.shade300, width: 1),
-          //         borderRadius: BorderRadius.circular(10),
-          //       ),
-          //       child: Row(
-          //         children: [
-          //           Padding(
-          //             padding: const EdgeInsets.only(left: 10),
-          //             child:
-          //                 Text(MyString.dateString, style: textTheme.headline5),
-          //           ),
-          //           Expanded(child: Container()),
-          //           Container(
-          //             margin: const EdgeInsets.only(right: 10),
-          //             width: 140,
-          //             height: 35,
-          //             decoration: BoxDecoration(
-          //                 borderRadius: BorderRadius.circular(10),
-          //                 color: Colors.grey.shade100),
-          //             child: Center(
-          //               child: Text(
-          //                 showDate(date),
-          //                 style: textTheme.subtitle2,
-          //               ),
-          //             ),
-          //           )
-          //         ],
-          //       ),
-          //     ),
-          //   )
+        
         ],
       ),
     );
   }
 
-  /// new / update Task Text
+
   SizedBox _buildTopText(TextTheme textTheme) {
     return SizedBox(
       width: double.infinity,
@@ -458,7 +346,7 @@ class _TaskViewState extends State<TaskView> {
                 text: isTaskAlreadyExistBool()
                     ? MyString.addNewTask
                     : MyString.updateCurrentTask,
-                style: textTheme.headline6,
+                style: TextStyle(fontSize: 15),
                 children: const [
                   TextSpan(
                     text: MyString.taskStrnig,

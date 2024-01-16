@@ -6,7 +6,7 @@ import 'package:panara_dialogs/panara_dialogs.dart';
 import '../utils/strings.dart';
 import '../../main.dart';
 
-/// Empty Title & Subtite TextFields Warning
+
 emptyFieldsWarning(context) {
   return FToast.toast(
     context,
@@ -18,7 +18,7 @@ emptyFieldsWarning(context) {
   );
 }
 
-/// Nothing Enter When user try to edit the current tesk
+
 nothingEnterOnUpdateTaskMode(context) {
   return FToast.toast(
     context,
@@ -30,7 +30,7 @@ nothingEnterOnUpdateTaskMode(context) {
   );
 }
 
-/// No task Warning Dialog
+
 dynamic warningNoTask(BuildContext context) {
   return PanaraInfoDialog.showAnimatedGrow(
     context,
@@ -45,7 +45,7 @@ dynamic warningNoTask(BuildContext context) {
   );
 }
 
-/// Delete All Task Dialog
+
 dynamic deleteAllTask(BuildContext context) {
   return PanaraConfirmDialog.show(
     context,
@@ -66,5 +66,3 @@ dynamic deleteAllTask(BuildContext context) {
   );
 }
 
-/// lottie asset address
-//String lottieURL = 'assets/lottie/1.json';

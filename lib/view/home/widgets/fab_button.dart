@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:hivetodoodev/view/tasks/task_view.dart';
 
-/// Floating Action Button
+
 class FAB extends StatefulWidget {
   const FAB({Key? key}) : super(key: key);
 
