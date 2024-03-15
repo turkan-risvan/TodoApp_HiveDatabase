@@ -4,12 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:hivetodoodev/view/home/widgets/fab_button.dart';
-import 'package:hivetodoodev/view/home/widgets/slider_widget.dart';
+ 
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import '../../main.dart';
 import '../../models/task.dart';
 import '../../view/home/widgets/task_widget.dart';
-import '../../utils/strings.dart';
+ 
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -62,21 +62,11 @@ class _HomeViewState extends State<HomeView> {
             floatingActionButton: const FAB(),
 
         
-            body: SliderDrawer(
-              isDraggable: false,
-              key: dKey,
-              animationDuration: 1000,
-
-
-              slider: MySlider(),
-
-             
-              child: _buildBody(
+            body: _buildBody(
                 tasks,
                 base,
                 textTheme,
               ),
-            ),
           );
         });
   }
@@ -122,7 +112,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
 
          
-                    Text(MyString.mainTitle, style: textTheme.headline1)
+                    Text("Görevlerim", style: textTheme.headline1)
                   ],
                 ),
                 const SizedBox(
@@ -175,7 +165,7 @@ class _HomeViewState extends State<HomeView> {
                             SizedBox(
                               width: 8,
                             ),
-                            Text(MyString.deletedTask,
+                            Text("Bu görev silindi",
                                 style: TextStyle(
                                   color: Colors.grey,
                                 ))
@@ -201,7 +191,7 @@ class _HomeViewState extends State<HomeView> {
               
                       FadeInUp(
                         from: 30,
-                        child: const Text(MyString.doneAllTask),
+                        child: const Text("doneAllTask"),
                       ),
                     ],
                   ),

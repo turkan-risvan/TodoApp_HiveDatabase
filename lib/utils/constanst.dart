@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ftoast/ftoast.dart';
 import 'package:panara_dialogs/panara_dialogs.dart';
-
-///
-import '../utils/strings.dart';
+ 
 import '../../main.dart';
 
 
 emptyFieldsWarning(context) {
   return FToast.toast(
     context,
-    msg: MyString.oopsMsg,
+    msg: "Oops!",
     subMsg: "Tüm Alanları doldurmalısınız!",
     corner: 20.0,
     duration: 2000,
@@ -22,7 +20,7 @@ emptyFieldsWarning(context) {
 nothingEnterOnUpdateTaskMode(context) {
   return FToast.toast(
     context,
-    msg: MyString.oopsMsg,
+    msg: "Oops!",
     subMsg: "Görevleri düzenlemeli ve ardından güncellemeyi denemelisiniz!",
     corner: 20.0,
     duration: 3000,
@@ -34,7 +32,7 @@ nothingEnterOnUpdateTaskMode(context) {
 dynamic warningNoTask(BuildContext context) {
   return PanaraInfoDialog.showAnimatedGrow(
     context,
-    title: MyString.oopsMsg,
+    title: "Oops!",
     message:
         "Silinecek Görev Yok!\n Biraz eklemeyi ve ardından silmeyi deneyin!",
     buttonText: "Tamam",
@@ -49,7 +47,7 @@ dynamic warningNoTask(BuildContext context) {
 dynamic deleteAllTask(BuildContext context) {
   return PanaraConfirmDialog.show(
     context,
-    title: MyString.areYouSure,
+    title: "areYouSure",
     message:
         "Gerçekten tüm görevleri silmek istiyor musunuz? Bu eylemi geri alamazsınız!",
     confirmButtonText: "Evet",

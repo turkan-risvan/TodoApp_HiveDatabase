@@ -6,7 +6,7 @@ import '../../main.dart';
 import '../../models/task.dart';
 import '../../utils/colors.dart';
 import '../../utils/constanst.dart';
-import '../../utils/strings.dart';
+ 
 
 class TaskView extends StatefulWidget {
   TaskView({
@@ -210,7 +210,7 @@ class _TaskViewState extends State<TaskView> {
                           width: 5,
                         ),
                         Text(
-                          MyString.deleteTask,
+                          "Görevi Sil",
                           style: TextStyle(
                             color: MyColors.primaryColor,
                           ),
@@ -233,8 +233,8 @@ class _TaskViewState extends State<TaskView> {
             color: MyColors.primaryColor,
             child: Text(
               isTaskAlreadyExistBool()
-                  ? MyString.addTaskString
-                  : MyString.updateTaskString,
+                  ?  "Görev ekle"
+                  :  "Görevi Güncelle",
               style: const TextStyle(
                 color: Colors.white,
               ),
@@ -257,7 +257,7 @@ class _TaskViewState extends State<TaskView> {
          
           Padding(
             padding: const EdgeInsets.only(left: 30),
-            child: Text(MyString.titleOfTitleTextField,
+            child: Text( "Ne planlıyorsun😇?",
                 style: textTheme.headline4),
           ),
 
@@ -308,7 +308,7 @@ class _TaskViewState extends State<TaskView> {
                       const Icon(Icons.bookmark_border, color: Colors.grey),
                   border: InputBorder.none,
                   counter: Container(),
-                  hintText: MyString.addNote,
+                  hintText:  "Not ekle"
                 ),
                 onFieldSubmitted: (value) {
                   subtitle = value;
@@ -344,12 +344,12 @@ class _TaskViewState extends State<TaskView> {
           RichText(
             text: TextSpan(
                 text: isTaskAlreadyExistBool()
-                    ? MyString.addNewTask
-                    : MyString.updateCurrentTask,
+                    ? "Yeni ekle"
+                    : "Güncelle",
                 style: TextStyle(fontSize: 15),
                 children: const [
                   TextSpan(
-                    text: MyString.taskStrnig,
+                    text:"Görev",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                     ),
